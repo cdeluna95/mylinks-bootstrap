@@ -1,0 +1,21 @@
+<% provide(:title, "Links") %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @comment.name %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @comment.body %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @comment.link_id %>
+</p>
+
+<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%#= link_to 'Back', comments_path %>
+<%= link_to 'Back', link_path(@comment.link_id) %>

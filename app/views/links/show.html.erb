@@ -1,20 +1,41 @@
 <% provide(:title, "Links") %>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Link:</strong>
-  <%= @link.link %>
-</p>
+<div class="center">
+  <table border="2">
+    <thead>
+      <tr>
+        <td><strong>Link</strong></td>
+        <td><strong>Author</strong></td>
+        <td><strong>Comment</strong></td>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <tr>
+        <td><%= @link.link %></td>
+        <td><%= @link.author %></td>
+        <td><%= @link.comment %></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <hr>
+  
+  <table border="1">
+    <tr>
+      <td>
+          <h1>Comments</h1>
+          <% @link.comments.each do |comment| %>
+          <p><strong><%= comment.name %></strong></p>
+          <p><%= comment.body %></p>
+          <% end %>
+      </td>
+    </tr>
+  </table>
+</div>
 
-<p>
-  <strong>Author:</strong>
-  <%= @link.author %>
-</p>
+<br>
 
-<p>
-  <strong>Comment:</strong>
-  <%= @link.comment %>
-</p>
-
-<%#= link_to 'Edit', edit_link_path(@link) %> |
-<%= link_to 'Back', links_path %>
+<%= link_to 'Back', links_path %> |
+<%= link_to 'Edit', edit_link_path(@link) %>

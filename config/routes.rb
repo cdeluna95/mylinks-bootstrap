@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
   resources :comments
-  resources :links, only: [ :index, :show]
+  resources :links
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'links#index'
+  get 'help'  =>    'links#help'
+  get 'login' =>    'links#login'
+  get 'about' =>    'links#about'
+  get 'contact' =>  'links#contact'  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
